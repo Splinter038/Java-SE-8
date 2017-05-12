@@ -1,4 +1,5 @@
-public class h2 {
+package nl.kadaster.oca;
+public class Hoofdstuk2 {
 	public static void main(String[] args){
 /*		char c2 = 122;
 		char c3 = '\u0122';
