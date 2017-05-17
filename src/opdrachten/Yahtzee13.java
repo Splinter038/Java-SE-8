@@ -20,7 +20,8 @@ public class Yahtzee13 {													// Yahtzee 1.3
 		boolean inputPhase = true;
 
 		while(inputPhase){
-			System.out.print("Insert name of player:");						
+			if(numberOfPlayers == 0){System.out.print("Insert name of player:");}
+			else{System.out.print("Insert name of player: (enter om te starten)");}
 			String input1 = sc.nextLine();
 			if (input1.equals("")){											//startgame
 				inputPhase = false;
@@ -134,7 +135,6 @@ public class Yahtzee13 {													// Yahtzee 1.3
 		}
 
 		for(int i = 0 ; i < players.size() -1 ; i++){							//loop layers
-			System.out.println("loopB");
 			if (players.get(i).score > players.get(i+1).score){					//compare scores
 				winnerIndex = i;
 			}else{
