@@ -2,7 +2,7 @@ package nl.kadaster.oca;
 
 import java.util.Scanner;
 
-public class Yahtzee11 {										// Yahtzee 1.1
+public class Yahtzee12 {										// Yahtzee 1.1
 	public static void main (String... iets){					// with gameFlow
 		int[] dices = {0,0,0,0,0};
 
@@ -62,16 +62,35 @@ public class Yahtzee11 {										// Yahtzee 1.1
 	}
 	
 	private static void chooseDestiny(int[] dices) {
+		System.out.println("Waar wil je deze uitkomst opslaan?");
+		
 		Scanner sc2 = new Scanner(System.in);										
-		int input3 = sc2.nextInt();
+		int inputDestiny = sc2.nextInt();
+		int[] scoreCard = {0,0,0,0,0,0,0};
+		int score = 0;
 		int matches = 0;
 		
-		for (int i=0 ; i<5 ; i++){
-			if (dices[i] == input3){
-				matches++;
+		for (int i=0 ; i<5 ; i++){if (dices[i] == inputDestiny){matches++;}}	// count matches
+		
+		if(inputDestiny==0){
+			scoreCard[0] = dices[0]+dices[1]+dices[2]+dices[3]+dices[4];
+		}
+		else{
+			scoreCard[inputDestiny] = matches;									// insert in scoreCard
+		}
+		
+		score += scoreCard[0];													// show scoreCard
+		for (int i=0 ; i<7 ; i++){
+			score += scoreCard[i]*i;
+			if (i == 0){
+				System.out.println("Restwaarde = " + scoreCard[0]);
+			}
+			else{
+				System.out.println(scoreCard[i] + " x " + i + " = " + (scoreCard[i]*i) + ".");
 			}
 		}
-		System.out.println("Jouw score: " + matches + " x " + input3 + " = " + (matches*input3) + "!");
+
+		System.out.println("Jouw totaalscore: " + score + "!");					// show score
 	}
 }
 
@@ -89,5 +108,4 @@ public class Yahtzee11 {										// Yahtzee 1.1
 //vergelijk uitkomsten > winnaar
 
 //leuk voor later:
-//System.out.print(Character.toChars(2680));
 //System.out.print("" + '\u2680' + '\u2681' + '\u2682' + '\u2683' + '\u2684' + '\u2685'); 2680 maar dan hexadecimaal

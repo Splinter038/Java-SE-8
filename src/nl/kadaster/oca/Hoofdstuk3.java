@@ -2,6 +2,8 @@ package nl.kadaster.oca;
 
 public class Hoofdstuk3 {
 	public static void main(String[] args){
+//		Integer mijnInteger = new Integer("");
+//		System.out.println(mijnInteger + "!");
 
 		Auto mijnEersteAuto = new Auto();
 		mijnEersteAuto.autoSchilderen("zwart");
@@ -26,6 +28,8 @@ class Auto {
 	private int aantalRuiten;					// encapsulation stap 1
 	static int aantalWielen = 4;
 	String kleur;
+	
+	
 	
 	void besturen() {
 		System.out.println("Broembroem");
